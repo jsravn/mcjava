@@ -57,8 +57,8 @@ public class StandardSimulatorTest {
     }
 
     double errValues[][] = { {1.0, 0.0, 0.0},
-			     {0.0, 0.125, 0.0},
-			     {-0.5, 0.129, 0.01} };
+			     {0.0, 0.35, 0.01},
+			     {-0.5, 0.36, 0.01} };
 
     @Test public void testFastError() {
 	assertEquals(Double.NaN, sim.fastError());

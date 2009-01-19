@@ -1,5 +1,7 @@
 package com.jsravn.mc;
 
+import java.lang.Math;
+
 class StandardSimulator implements Simulator {
     private Simulation sim;
     private BootstrapError bootstrap;
@@ -23,7 +25,7 @@ class StandardSimulator implements Simulator {
 	sumOfSquares += result * result;	
 	mu = sum / N;
 	variance = sumOfSquares / N - mu * mu;
-	fastError = variance / N;
+	fastError = Math.sqrt(variance / N);
 	bootstrap.addSample(result);
     }
 

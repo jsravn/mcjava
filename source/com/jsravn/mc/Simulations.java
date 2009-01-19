@@ -10,5 +10,7 @@ public final class Simulations {
      * Returns a new simulator that will run the given simulation.
      * @param sim the Simulation the simulator will run.
      */
-    public static Simulator newSimulator(Simulation sim);
+    public static Simulator newSimulator(Simulation sim) {
+	return new StandardSimulator(sim);
+    }
 }

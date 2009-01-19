@@ -1,8 +1,7 @@
 package com.jsravn.mc;
 
 /**
- * This class is implemented by your simulation. Implement the simulate method
- * and pass your object into a SimulateMany object.
+ * Implement this interface in your simulation.
  */
 public interface Simulation {
     /**

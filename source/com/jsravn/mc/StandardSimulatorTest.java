@@ -70,6 +70,9 @@ public class StandardSimulatorTest {
     }
 
     @Test public void testError() {
-	assertEquals(Double.NaN, sim.error());
+	assertEquals(Double.NaN, sim.error(67), 0.0);
+	result = 1.0;
+	sim.run();
+	assertEquals(0.0, sim.error(67), 0.0);
     }
 }

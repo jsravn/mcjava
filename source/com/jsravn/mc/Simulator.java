@@ -15,7 +15,7 @@ public interface Simulator {
     public int iteration();
 
     /**
-     * Returns the mean value of the simulation.
+     * Returns the mean value of simulation values.
      */
     public double mu();
 
@@ -31,8 +31,15 @@ public interface Simulator {
     public double fastError();
 
     /**
-     * Returns a more accurate approximation of error on mu. Don't use this in
-     * every iteration or your program will be very slow!
+     * Returns a more accurate approximation of error on mu. Don't use this
+     * every iteration or your program will be very slow! It uses a bootstrap
+     * algorithm by approximating the output distribution through simulation
+     * samples.
+     *
+     * @param confidence is the confidence interval you want on your
+     * error. For example, 67 would represent a 67% confidence interval
+     * (roughly equal to one standard deviation in a normal distribution).
+     * @precondition confidence should be in the range (0, 100)
      */
-    public double error();
+    public double error(int confidence);
 }

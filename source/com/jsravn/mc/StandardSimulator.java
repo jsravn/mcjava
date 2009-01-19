@@ -2,6 +2,7 @@ package com.jsravn.mc;
 
 class StandardSimulator implements Simulator {
     private Simulation sim;
+    private BootstrapError bootstrap;
     private int N;
     private double sum;
     private double sumOfSquares;
@@ -11,6 +12,7 @@ class StandardSimulator implements Simulator {
 
     StandardSimulator(Simulation sim) {
 	this.sim = sim;
+	bootstrap = new BootstrapError();
     }
 
     public void run() {
@@ -22,6 +24,7 @@ class StandardSimulator implements Simulator {
 	mu = sum / N;
 	variance = sumOfSquares / N - mu * mu;
 	fastError = variance / N;
+	bootstrap.addSample(result);
     }
 
     public int iteration() {
@@ -40,9 +43,7 @@ class StandardSimulator implements Simulator {
 	return fastError;
     }
 
-    public double error() {
-	if (N == 0)
-	    return Double.NaN;
-	return -1.0;
+    public double error(int confidence) {
+	return bootstrap.calcError(confidence);
     }
 }

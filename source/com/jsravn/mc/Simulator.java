@@ -1,6 +1,7 @@
 package com.jsravn.mc;
 
 import java.lang.Runnable;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simulator runs a simulation and gathers statistics on the output.
@@ -32,6 +33,9 @@ public interface Simulator {
      */
     public void runMany(int iterations, double absoluteError,
 			double relativeError, Runnable callback);
+
+    public void runManyThreaded(int iterations, double absoluteError,
+				double relativeError, Runnable callback);
 
     /**
      * Returns the number of completed iterations.

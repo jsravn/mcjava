@@ -29,6 +29,27 @@ class StandardSimulator implements Simulator {
 	bootstrap.addSample(result);
     }
 
+    public void runMany(int iterations, double absoluteError,
+			double relativeError) {
+	runMany(iterations, absoluteError, relativeError, null);
+    }
+
+    public void runMany(int iterations, double absoluteError,
+			double relativeError, Runnable callback) {
+	for (int i = 0; i < iterations; i++) {
+	    run();
+	    
+	    if (callback != null)
+		callback.run();
+
+	    if (i > 0 && fastError() > 0.0) {
+		if (fastError() < absoluteError
+		    || fastError() < relativeError * mu())
+		    break;
+	    }
+	}
+    }
+
     public int iteration() {
 	return N;
     }

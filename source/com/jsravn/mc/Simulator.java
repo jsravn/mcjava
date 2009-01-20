@@ -1,5 +1,7 @@
 package com.jsravn.mc;
 
+import java.lang.Runnable;
+
 /**
  * A simulator runs a simulation and gathers statistics on the output.
  */
@@ -8,6 +10,28 @@ public interface Simulator {
      * Runs the simulation a single time, adding the result to its metrics.
      */
     public void run();
+
+    /**
+     * Runs the simulation many times, stopping when one of its limit
+     * conditions is reached.
+     *
+     * @param iterations maximum number of iterations to run
+     * @param absoluteError target absolute error on mu (stops on
+     * absoluteError < error)
+     * @param relativeError target relative error on mu (stops on
+     * relativeError * mu < error)
+     */
+    public void runMany(int iterations, double absoluteError,
+			double relativeError);
+
+    /**
+     * Runs the simulation many times, stopping when one of its limit
+     * conditions is reached.
+     *
+     * @param callback is called each iteration.
+     */
+    public void runMany(int iterations, double absoluteError,
+			double relativeError, Runnable callback);
 
     /**
      * Returns the number of completed iterations.

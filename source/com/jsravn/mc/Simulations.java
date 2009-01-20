@@ -11,8 +11,8 @@ public final class Simulations {
      *
      * @param sim is the Simulation the Simulator will run.
      */
-    public static Simulator newSimulator(Simulation sim) {
-	return new StandardSimulator(sim);
+    public static Simulator newSimulator(Simulation simulation) {
+	return new StandardSimulator(simulation);
     }
 
     /**
@@ -25,22 +25,46 @@ public final class Simulations {
      *
      * @param sim is the Simulation the Simulator will run
      */
-    public static Simulator newThreadedSimulator(Simulation sim) {
-	return new ThreadedSimulator(sim);
+    public static Simulator newThreadedSimulator(Simulation simulation) {
+	return new ThreadedSimulator(simulation);
     }
 
     /**
-     * Returns a new Runner that will run the given simulator and output the
-     * results on the command line. Use this instead of a Simulator directly
-     * if you don't need the extra flexibility. It is much less work to use a
-     * Runner.
+     * Returns a new texed based Runner that will run the given simulator and
+     * output the results on the command line. Use this instead of a Simulator
+     * directly if you don't need the extra flexibility. It is much less work
+     * to use a Runner.
      *
      * @param args is an array of arguments, usually passed on the command
      * line. Their interpretation is handled by the Runner, and a help menu
      * will be output to the console if arguments are omitted.
      * @param sim is the Simulator to run
      */
-    public static Runner newTextRunner(String[] args, Simulator sim) {
-	return new SimpleRunner(args, sim);
+    public static Runner newTextRunner(String[] args, Simulator simulator) {
+	return new SimpleRunner(args, simulator);
+    }
+
+    /**
+     * Returns a new text based Runner using the standard simulator returned
+     * by newSimulator. This is equivalent to:
+     * <code>newTextRunner(args, Simulations.newSimulator(simulation))</code>
+     *
+     * @param sim is the Simulation
+     */
+    public static Runner newTextRunner(String[] args, Simulation simulation) {
+	return new SimpleRunner(args, newSimulator(simulation));
+    }
+
+    /**
+     * Returns a new text based Runner using the threaded simulator returned
+     * by newThreadedSimulator. This is equivalent to:
+     * <code>newTextRunner(args, Simulations.newThreadedSimulator(simulation))
+     * </code>
+     *
+     * @param sim is the Simulation
+     */
+    public static Runner newThreadedTextRunner(String[] args,
+					       Simulation simulation) {
+	return new SimpleRunner(args, newThreadedSimulator(simulation));
     }
 }

@@ -22,7 +22,6 @@ public class Gaussian implements Simulation {
     }
 
     public static void main(String args[]) {
-	Simulator sim = Simulations.newSimulator(new Gaussian());
-	Simulations.newTextRunner(args, sim).run();
+	Simulations.newTextRunner(args, new Gaussian()).run();
     }
 }

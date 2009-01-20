@@ -56,7 +56,6 @@ public class FlashROMFailureRate implements Simulation {
     }
 
     public static void main(String args[]) {
-	Simulator sim = Simulations.newSimulator(new FlashROMFailureRate());
-	Simulations.newTextRunner(args, sim).run();
+	Simulations.newTextRunner(args, new FlashROMFailureRate()).run();
     }
 }

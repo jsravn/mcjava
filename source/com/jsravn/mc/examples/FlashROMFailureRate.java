@@ -30,7 +30,7 @@ public class FlashROMFailureRate implements Simulation {
 
     public double simulate() {
 	final int bad = rand.nextInt(15);
-	ArrayList<Integer> flash = new ArrayList<Integer>(1024);
+	final ArrayList<Integer> flash = new ArrayList<Integer>(1024);
 	for (int i = 0; i < bad; i++)
 	    flash.add(1);
 	for (int i = bad; i < 1024; i++)

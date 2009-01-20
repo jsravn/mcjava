@@ -1,4 +1,4 @@
-		     Simple Monte Carlo Framework in Java
+		     Simple Monte Carlo Library in Java
 
 			  Copyright 2009 James Ravn
 			     james.ravn@gmail.com
@@ -6,7 +6,7 @@
 Introduction
 ------------
 
-The goal is to provide a monte carlo framework that is fast, portable, and
+The goal is to provide a monte carlo library that is fast, portable, and
 simple. The only thing required by the user is to create their simulation.
 
 Features
@@ -43,7 +43,7 @@ build directory. This jar file can then be used directly in your simulations.
 Using
 -----
 
-The details of using the framework are provided in the Javadoc. Run 'ant doc'
+The details of using the library are provided in the Javadoc. Run 'ant doc'
 to generate it. You can then open up build/doc-public/index.html in any browser.
 
 Also take a look at source/com/mc/jsravn/examples.

@@ -2,6 +2,7 @@ package com.jsravn.mc.examples;
 
 import com.jsravn.mc.Simulations;
 import com.jsravn.mc.Simulation;
+import com.jsravn.mc.Simulator;
 import com.jsravn.mc.Runner;
 
 import java.util.Random;
@@ -55,6 +56,7 @@ public class FlashROMFailureRate implements Simulation {
     }
 
     public static void main(String args[]) {
-	Simulations.newTextRunner(args, new FlashROMFailureRate()).run();
+	Simulator sim = Simulations.newSimulator(new FlashROMFailureRate());
+	Simulations.newTextRunner(args, sim).run();
     }
 }

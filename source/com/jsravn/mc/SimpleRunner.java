@@ -6,7 +6,7 @@ class SimpleRunner implements Runner {
     final double absoluteError;
     final double relativeError;
 
-    SimpleRunner(String args[], Simulation simulation) {
+    SimpleRunner(String args[], Simulator simulator) {
 	if (args.length != 3) {
 	    System.out.println("Correct usage: java <simulation> N absolute relative");
 	    System.exit(-1);
@@ -14,7 +14,7 @@ class SimpleRunner implements Runner {
 	N = Integer.parseInt(args[0]);
 	absoluteError = Double.parseDouble(args[1]);
 	relativeError = Double.parseDouble(args[2]);
-	this.sim = Simulations.newSimulator(simulation);
+	this.sim = simulator;
     }
 
     final Runnable printer = new Runnable() {
@@ -31,7 +31,6 @@ class SimpleRunner implements Runner {
 	final long begin = System.currentTimeMillis();
 	System.out.println("n,mu,var,fasterr");
 	sim.runMany(N, absoluteError, relativeError, printer);
-	// sim.runManyThreaded(N, absoluteError, relativeError, printer);
 
 	System.out.println("\nFinal output:");
 	System.out.printf("N: %d\n", sim.iteration());

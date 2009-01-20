@@ -2,6 +2,7 @@ package com.jsravn.mc.examples;
 
 import com.jsravn.mc.Simulations;
 import com.jsravn.mc.Simulation;
+import com.jsravn.mc.Simulator;
 import com.jsravn.mc.Runner;
 
 import java.util.Random;
@@ -21,6 +22,7 @@ public class Gaussian implements Simulation {
     }
 
     public static void main(String args[]) {
-	Simulations.newTextRunner(args, new Gaussian()).run();
+	Simulator sim = Simulations.newSimulator(new Gaussian());
+	Simulations.newTextRunner(args, sim).run();
     }
 }

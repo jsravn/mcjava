@@ -34,8 +34,10 @@ public interface Simulator {
     public void runMany(int iterations, double absoluteError,
 			double relativeError, Runnable callback);
 
-    public void runManyThreaded(int iterations, double absoluteError,
-				double relativeError, Runnable callback);
+    /**
+     * Returns the associated simulation.
+     */
+    public Simulation simulation();
 
     /**
      * Returns the number of completed iterations.

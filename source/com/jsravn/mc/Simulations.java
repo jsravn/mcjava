@@ -46,8 +46,10 @@ public final class Simulations {
 
     /**
      * Returns a new text based Runner using the standard simulator returned
-     * by newSimulator. This is equivalent to:
-     * <code>newTextRunner(args, Simulations.newSimulator(simulation))</code>
+     * by newSimulator. This is equivalent to
+     * <pre>
+     *     newTextRunner(args, Simulations.newSimulator(simulation))
+     * </pre>
      *
      * @param sim is the Simulation
      */
@@ -57,9 +59,10 @@ public final class Simulations {
 
     /**
      * Returns a new text based Runner using the threaded simulator returned
-     * by newThreadedSimulator. This is equivalent to:
-     * <code>newTextRunner(args, Simulations.newThreadedSimulator(simulation))
-     * </code>
+     * by newThreadedSimulator. This is equivalent to
+     * <pre>
+     *     newTextRunner(args, Simulations.newThreadedSimulator(simulation))
+     * </pre>
      *
      * @param sim is the Simulation
      */

@@ -1,0 +1,64 @@
+		     Simple Monte Carlo Framework in Java
+
+			  Copyright 2009 James Ravn
+			     james.ravn@gmail.com
+
+Introduction
+------------
+
+The goal is to provide a monte carlo framework that is fast, portable, and
+simple. The only thing required by the user is to create their simulation.
+
+Features
+--------
+
+* Bootstrap algorithm
+* Error calculation using bootstrap
+* Threaded simulator available for multicore systems
+
+Where To Get It
+---------------
+
+The latest version can be cloned using git:
+
+    git clone git://git.jsravn.com/mcjava.git
+
+Please send bug reports and patches to james.ravn@gmail.com.
+
+Requirements
+------------
+
+You need:
+
+* JDK 1.6+
+* Ant
+* JUnit 4+
+
+Testing & Compiling
+-------------------
+
+Run 'ant test' to run all the tests. Run 'ant build' to generate mc.jar in the
+build directory. This jar file can then be used directly in your simulations.
+
+Using
+-----
+
+The details of using the framework are provided in the Javadoc. Run 'ant doc'
+to generate it. You can then open up build/doc-public/index.html in any browser.
+
+Also take a look at source/com/mc/jsravn/examples.
+
+The basic steps are:
+
+1. import com.jsravn.mc.Simulations and com.jsravn.mc.Simulation.
+
+2. Write a class that implements Simulation.
+
+3. Have your main method use a TextRunner to run the Simulation, passing the
+command line arguments in:
+
+   Simulations.newTextRunner(args, new MySimulation()).run();
+
+4. Compile and run your file like this, making sure mc.jar is in the CLASSPATH:
+
+   java <MySimulation> MaxIterations absoluteError relativeError
